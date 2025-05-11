@@ -5,19 +5,26 @@
 ENV_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Setting
-## WARNING: You MUST Install CUDA Toolkit before run this script: https://developer.nvidia.com/cuda-12-8-0-download-archive
-## Python Release: https://www.python.org/downloads/
+# Python Release: https://www.python.org/downloads/
 ENV_NAME="cu128"
 PYTHON_VERSION="3.12.10"
 
 # Environment Variable
 ## PYENV
+if ! command -v pyenv >/dev/null; then
+  echo "pyenv not found, please install it first."
+  return 1
+fi
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 ## CUDA
+if [ ! -d "/usr/local/cuda" ]; then
+  echo "CUDA not found at /usr/local/cuda"
+  return 1
+fi
 export PATH=/usr/local/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 

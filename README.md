@@ -8,7 +8,7 @@ First, Customize Setting in `env.sh` and pip requirements
 
 ```bash
 $ source env.sh
-$ source python test.py
+$ python test.py
 ```
 
 

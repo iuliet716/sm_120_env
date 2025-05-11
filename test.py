@@ -18,6 +18,7 @@ print()
 print("[GPU TEST]")
 if torch.cuda.is_available():
     print("CUDA is available (GPU):", torch.cuda.get_device_name(0))
+    x = torch.rand(3, 3).cuda()
     print("Allocation on GPU succeeded:\n", x)
     print("Computation on GPU succeeded:\n", x + x)
 else:

@@ -5,7 +5,8 @@
 ENV_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Setting
-# Python Release: https://www.python.org/downloads/
+## WARNING: You MUST Install CUDA Toolkit before run this script: https://developer.nvidia.com/cuda-12-8-0-download-archive
+## Python Release: https://www.python.org/downloads/
 ENV_NAME="cu128"
 PYTHON_VERSION="3.12.10"
 
